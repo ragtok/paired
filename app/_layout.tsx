@@ -52,6 +52,8 @@ const Separator: React.FC = () => <View style={styles.separator} />;
 const varAppName = "CODE MOKEYS";
 const varAppVersion = "v1.0.0";
 
+
+
 const MyDarkTheme: Theme = {
   ...DefaultTheme,
   colors: {
