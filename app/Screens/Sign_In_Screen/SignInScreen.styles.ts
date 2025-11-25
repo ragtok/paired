@@ -37,4 +37,3 @@ export const signInStyles = StyleSheet.create({
   footerText: { color: "#999", textAlign: "center", fontSize: 12 },
   link: { color: "#00BFA6" },
 });
-

@@ -1,6 +1,6 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import type { HomeProps } from "./navigation";
-import { SignInScreen } from "./screens/sign in screen/sign-in-screen";
+import { SignInScreen } from "./Screens/Sign_In_Screen/Main_SignInScreen";
 
 export default function Index() {
   const navigation = useNavigation<HomeProps["navigation"]>();

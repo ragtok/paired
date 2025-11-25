@@ -1,9 +1,20 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
 import { Stack } from "./navigation";
-import { ContactSupportScreen, MainScreen, ProfileScreen, SettingsScreen } from "./screens/screens";
-import { SignInScreen } from "./screens/sign in screen/sign-in-screen";
+import { ContactSupportScreen, MainScreen, ProfileScreen, SettingsScreen } from "./Screens/Navigation_Screens";
+import { SignInScreen } from "./Screens/Sign_In_Screen/Main_SignInScreen";
 import { screenHeight } from "./sharedUI";
+
+
+
+
+
+
+
+
+
+
+
 
 export default function App() {
   return (

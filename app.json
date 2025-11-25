@@ -4,7 +4,7 @@
     "slug": "PairedApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/pairedApp_Logo.png",
     "scheme": "pairedapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -23,14 +23,14 @@
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/pairedApp_Logo.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/pairedApp_Logo.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
