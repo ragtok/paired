@@ -1,16 +1,133 @@
+import { Feather } from "@expo/vector-icons";
 import * as React from "react";
-import { StyleSheet } from "react-native";
-import { Stack } from "./navigation";
-import { ContactSupportScreen, MainScreen, ProfileScreen, SettingsScreen } from "./Screens/Navigation_Screens";
+import { useState } from "react";
+import { Linking, Pressable, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Stack, type SettingsProps } from "./navigation";
+import { MainScreen } from "./Screens/Main_Screen/MainScreen";
+import { ContactSupportScreen, ProfileScreen } from "./Screens/Navigation_Screens";
 import { SignInScreen } from "./Screens/Sign_In_Screen/Main_SignInScreen";
-import { screenHeight } from "./sharedUI";
+import { varAppName, varAppVersion, varLoggedInUserEmail, varLoggedInUserName } from "./sharedUI";
 
 
+// ---------- Screen (Settings) ----------
+export function SettingsScreen({ navigation }: SettingsProps) {
+  const [notifications, setNotifications] = useState<boolean>(true);
+  const [darkMode, setDarkMode] = useState<boolean>(true);
 
+  return (
+    <SafeAreaView style={styles.screen}>
+      {/* Header */}
+      <View style={settingsStyles.header}>
+        <Pressable
+          onPress={() => navigation.goBack()}
+          hitSlop={10}
+          style={({ pressed }) => [
+            settingsStyles.headerIconButton,
+            pressed && settingsStyles.headerIconButtonActive,
+          ]}
+        >
+          <Feather name="arrow-left" size={22} color="#00BFA6" />
+        </Pressable>
+        <Text style={settingsStyles.headerTitle}>Settings</Text>
+        <View style={{ width: 40 }} />
+      </View>
 
+      {/* Content */}
+      <View style={settingsStyles.container}>
+        {/* Preferences */}
+        <View style={settingsStyles.group}>
+          {/* Profile */}
+          <Pressable
+            style={settingsStyles.cardRow}
+            android_ripple={{ color: "#1a1a1a" }}
+            onPress={() => navigation.navigate("Profile")}
+          >
+            <View style={settingsStyles.rowLeft}>
+              <View style={settingsStyles.rowIconWrap}>
+                <Feather name="user-check" size={18} color="#00BFA6" />
+              </View>
+              <View>
+                <Text style={settingsStyles.rowTitle}>Profile</Text>
+                <Text style={settingsStyles.rowSubtitle}>Personalize your experience</Text>
+              </View>
+            </View>
+            <Feather name="chevron-right" size={18} color="#6B6B6B" />
+          </Pressable>
 
+          {/* Notifications */}
+          <Pressable
+            style={settingsStyles.cardRow}
+            android_ripple={{ color: "#1a1a1a" }}
+            onPress={() => setNotifications(!notifications)}
+          >
+            <View style={settingsStyles.rowLeft}>
+              <View style={settingsStyles.rowIconWrap}>
+                <Feather name="bell" size={18} color="#00BFA6" />
+              </View>
+              <View>
+                <Text style={settingsStyles.rowTitle}>Notifications</Text>
+                <Text style={settingsStyles.rowSubtitle}>
+                  Get daily question or activity suggestions
+                </Text>
+              </View>
+            </View>
+            <Feather
+              name={notifications ? "toggle-right" : "toggle-left"}
+              size={36}
+              color={notifications ? "#00BFA6" : "#6B6B6B"}
+            />
+          </Pressable>
+        </View>
 
+        {/* Support */}
+        <View style={settingsStyles.group}>
+          <Text style={settingsStyles.groupTitle}>Support</Text>
+          <Pressable
+            style={settingsStyles.listRow}
+            onPress={() => Linking.openURL("https://yourwebsite.com/privacy")}
+          >
+            <Text style={settingsStyles.listRowText}>Privacy Policy</Text>
+            <Feather name="external-link" size={16} color="#6B6B6B" />
+          </Pressable>
+          <Pressable
+            style={settingsStyles.listRow}
+            onPress={() => Linking.openURL("https://yourwebsite.com/terms")}
+          >
+            <Text style={settingsStyles.listRowText}>Terms of Service</Text>
+            <Feather name="external-link" size={16} color="#6B6B6B" />
+          </Pressable>
+          {/* SettingsScreen → inside the Support group */}
+          <Pressable
+            style={settingsStyles.listRow}
+            onPress={() =>
+              navigation.navigate("ContactSupport", {
+                user: { name: varLoggedInUserName, email: varLoggedInUserEmail },
+              })
+            }
+          >
+            <Text style={settingsStyles.listRowText}>Contact Support</Text>
+            <Feather name="mail" size={16} color="#6B6B6B" />
+          </Pressable>
+        </View>
 
+        {/* About */}
+        <View style={settingsStyles.group}>
+          <Text style={settingsStyles.groupTitle}>About</Text>
+          <View style={settingsStyles.cardBox}>
+            <Text style={settingsStyles.appName}>
+              {varAppName} {varAppVersion}
+            </Text>
+            <Text style={settingsStyles.appDesc}>
+              Discover engaging questions and activities to spark conversations and
+              exploration - with more features coming soon.
+            </Text>
+          </View>
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+}
 
 
 
@@ -50,9 +167,36 @@ export default function App() {
 
 // ---------- Styles ----------
 const styles = StyleSheet.create({
+  screen: { flex: 1, backgroundColor: "#121212" },
+  content: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 16,
+  },
   appName: { color: "#FFFFFF", fontSize: 14, opacity: 0.9 },
   gradientBorder: { padding: 2, borderRadius: 10 },
   innerBox: { backgroundColor: "#121212", borderRadius: 8 },
+  button: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 15,
+    paddingHorizontal: 15,
+    gap: 10,
+  },
+  buttonIcon: {
+    width: 22,
+    height: 22,
+    resizeMode: "contain",
+    marginRight: 8,
+  },
+  buttonText: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    fontWeight: "600",
+  },
+  fullWidth: { width: "70%", alignSelf: "center" },
   separator: {
     marginVertical: 10,
     borderBottomColor: "#737373",
@@ -76,6 +220,13 @@ const styles = StyleSheet.create({
   },
   headerMenuButton: { marginRight: -40 },
   headerLogo: { width: 40, height: 40, resizeMode: "contain" },
+  footer: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    alignItems: "center",
+  },
+  footerText: { color: "#999", textAlign: "center", fontSize: 12 },
+  link: { color: "#00BFA6" },
   tabContainer: {
     flexDirection: "row",
     justifyContent: "center",
@@ -113,96 +264,6 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,191,166,0.2)",
     borderColor: "#00BFA6",
   },
-});
-
-const cardStyles = StyleSheet.create({
-  cardShadow: {
-    width: "90%",
-    alignSelf: "center",
-    borderRadius: 18,
-    shadowColor: "#000",
-    shadowOpacity: 0.35,
-    shadowRadius: 18,
-    shadowOffset: { width: 0, height: 12 },
-    elevation: 8,
-    minHeight: screenHeight * 0.55,
-    overflow: "hidden",
-  },
-  cardInner: {
-    borderRadius: 18,
-    backgroundColor: "rgba(18, 18, 18, 0.8)",
-    paddingTop: 16,
-    paddingBottom: 24,
-    paddingHorizontal: 16,
-    minHeight: screenHeight * 0.55,
-    overflow: "hidden",
-  },
-  topRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  modePill: {
-    backgroundColor: "#1C1C1C",
-    borderRadius: 999,
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: "#2A2A2A",
-  },
-  modePillText: { color: "#D8D8D8", fontSize: 12, fontWeight: "600" },
-  favoriteBtn: {
-    padding: 6,
-    borderRadius: 999,
-    backgroundColor: "rgba(255,255,255,0.03)",
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: "#2A2A2A",
-  },
-  centerWrap: {
-    flexGrow: 1,
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 50,
-  },
-  promptText: {
-    color: "#FFFFFF",
-    fontSize: 18,
-    lineHeight: 26,
-    textAlign: "center",
-    fontWeight: "600",
-  },
-  arrowsRow: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: "50%",
-    marginTop: -12,
-    paddingHorizontal: 16,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  circleBtn: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: "rgba(255,255,255,0.06)",
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: "#2A2A2A",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  hintPill: {
-    alignSelf: "center",
-    marginTop: 8,
-    backgroundColor: "rgba(255,255,255,0.06)",
-    borderRadius: 999,
-    paddingVertical: 8,
-    paddingHorizontal: 14,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: "#2A2A2A",
-  },
-  hintText: { color: "#B5B5B5", fontSize: 12 },
 });
 
 // settings screen style
