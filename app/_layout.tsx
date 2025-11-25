@@ -1,49 +1,33 @@
-import { NavigationContainer } from "@react-navigation/native";
 import * as React from "react";
 import { StyleSheet } from "react-native";
 import { Stack } from "./navigation";
-import {
-  ContactSupportScreen,
-  MainScreen,
-  ProfileScreen,
-  SettingsScreen,
-  SignInScreen,
-} from "./screens";
-import {
-  screenHeight
-} from "./sharedUI";
-import { MyDarkTheme } from "./theme";
+import { ContactSupportScreen, MainScreen, ProfileScreen, SettingsScreen } from "./screens/screens";
+import { SignInScreen } from "./screens/sign in screen/sign-in-screen";
+import { screenHeight } from "./sharedUI";
 
-/* ---------- Tiny UI helpers ---------- */
-
-// OptionGrid and OptionPill moved to ./ui/option-pill.tsx
-
-// Navigation theme has been moved to ./theme.ts
-
-// Screens are exported from `./screens`.
-
-// ---------- App entry ----------
 export default function App() {
   return (
-    <NavigationContainer theme={MyDarkTheme}>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-          animation: "none",
-          contentStyle: { backgroundColor: "#121212" },
-          headerStyle: { backgroundColor: "#121212" },
-          freezeOnBlur: true,
-        }}
-      >
-        <Stack.Screen name="Home" component={SignInScreen} />
-        <Stack.Screen name="Details" component={MainScreen} />
-        <Stack.Screen name="Settings" component={SettingsScreen} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-        <Stack.Screen name="ContactSupport" component={ContactSupportScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerShown: false,
+        animation: "none",
+        contentStyle: { backgroundColor: "#121212" },
+        headerStyle: { backgroundColor: "#121212" },
+        freezeOnBlur: true,
+      }}
+    >
+      <Stack.Screen 
+        name="Home" 
+        component={SignInScreen}
+      />
+      <Stack.Screen name="Details" component={MainScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="ContactSupport" component={ContactSupportScreen} />
+    </Stack.Navigator>
   );
-};
+}
 
 
 // (Removed duplicate small `styles` block — the full `styles` object is defined later in the file.)
@@ -55,37 +39,9 @@ export default function App() {
 
 // ---------- Styles ----------
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: "#121212" },
-  content: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingHorizontal: 16,
-  },
   appName: { color: "#FFFFFF", fontSize: 14, opacity: 0.9 },
-  heading: { color: "#FFFFFF", fontSize: 18, fontWeight: "600" },
   gradientBorder: { padding: 2, borderRadius: 10 },
   innerBox: { backgroundColor: "#121212", borderRadius: 8 },
-  button: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-    gap: 10,
-  },
-  buttonIcon: {
-    width: 22,
-    height: 22,
-    resizeMode: "contain",
-    marginRight: 8,
-  },
-  buttonText: {
-    color: "#FFFFFF",
-    fontSize: 16,
-    fontWeight: "600",
-  },
-  fullWidth: { width: "70%", alignSelf: "center" },
   separator: {
     marginVertical: 10,
     borderBottomColor: "#737373",
@@ -109,13 +65,6 @@ const styles = StyleSheet.create({
   },
   headerMenuButton: { marginRight: -40 },
   headerLogo: { width: 40, height: 40, resizeMode: "contain" },
-  footer: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    alignItems: "center",
-  },
-  footerText: { color: "#999", textAlign: "center", fontSize: 12 },
-  link: { color: "#00BFA6" },
   tabContainer: {
     flexDirection: "row",
     justifyContent: "center",
