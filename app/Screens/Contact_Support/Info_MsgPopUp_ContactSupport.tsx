@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Pressable, Text, View } from "react-native";
-import GradientBorder from "../../GradientBorder";
-import type { ContactSupportProps } from "../../navigation";
-import { Separator } from "../../sharedUI";
+import GradientBorder from "../../ui/GradientBorder";
+import type { ContactSupportProps } from "../../Navigation/navigation";
+import { Separator } from "../../ui/sharedUI";
 import { contactStyles } from "./ContactSupportScreen.styles";
 
 interface Info_Msg_ContactSupportProps {

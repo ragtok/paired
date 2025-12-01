@@ -1,8 +1,8 @@
 import { Feather } from "@expo/vector-icons";
 import * as React from "react";
 import { Image, Pressable, View } from "react-native";
-import type { DetailsProps } from "../../navigation";
-import { Separator } from "../../sharedUI";
+import type { DetailsProps } from "../../Navigation/navigation";
+import { Separator } from "../../ui/sharedUI";
 import { mainScreenStyles } from "./MainScreen.styles";
 
 interface Header_MainScreenProps {

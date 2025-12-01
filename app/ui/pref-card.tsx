@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import type { PrefCardProps } from "../types";
+import type { PrefCardProps } from "./types";
 
 // Minimal local styles used by PrefCard to keep it self-contained.
 export const PrefCard: React.FC<PrefCardProps> = ({ number, title, children }) => {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Text, View } from "react-native";
-import { varAppName, varAppVersion } from "../../sharedUI";
+import { varAppName, varAppVersion } from "../../ui/sharedUI";
 import { settingsStyles } from "./SettingsScreen.styles";
 
 export function Buttons_About_SettingsScreen() {

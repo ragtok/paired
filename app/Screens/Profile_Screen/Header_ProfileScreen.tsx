@@ -1,7 +1,7 @@
 import { Feather } from "@expo/vector-icons";
 import * as React from "react";
 import { Pressable, Text, View } from "react-native";
-import type { ProfileProps } from "../../navigation";
+import type { ProfileProps } from "../../Navigation/navigation";
 import { ProfileScreenStyles } from "./ProfileScreen.styles";
 
 interface Header_ProfileScreenProps {

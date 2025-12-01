@@ -1,7 +1,7 @@
 import { Feather } from "@expo/vector-icons";
 import * as React from "react";
 import { Pressable, Text, View } from "react-native";
-import type { SettingsProps } from "../../navigation";
+import type { SettingsProps } from "../../Navigation/navigation";
 import { settingsStyles } from "./SettingsScreen.styles";
 
 interface Header_SettingsProps {

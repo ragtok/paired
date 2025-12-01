@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View } from "react-native";
-import type { SettingsProps } from "../../navigation";
+import type { SettingsProps } from "../../Navigation/navigation";
 import { Button_Notifications_SettingsScreen } from "./Button_Notifications_SettingsScreen";
 import { Button_Area_ProfileScreen } from "./Button_Profile_SettingsScreen";
 import { Button_Subscription_SettingsScreen } from "./Button_Subscription_SettingsScreen";

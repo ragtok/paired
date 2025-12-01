@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Image, Pressable, Text } from "react-native";
-import GradientBorder from "../../GradientBorder";
+import GradientBorder from "../../ui/GradientBorder";
 import { signInStyles } from "./SignInScreen.styles";
 
 interface Buttons_ProvidersProps {

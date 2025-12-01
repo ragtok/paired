@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import type { SettingsProps } from "../../navigation";
+import type { SettingsProps } from "../../Navigation/navigation";
 import { Buttons_Profile_SettingsScreen } from "./Area_Profile_SettingsScreen";
 import { Buttons_Support_SettingsScreen } from "./Area_Support_SettingsScreen";
 import { Buttons_About_SettingsScreen } from "./Buttons_About_SettingsScreen";

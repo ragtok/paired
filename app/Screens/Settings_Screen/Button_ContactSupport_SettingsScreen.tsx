@@ -1,8 +1,8 @@
 import { Feather } from "@expo/vector-icons";
 import * as React from "react";
 import { Pressable, Text } from "react-native";
-import type { SettingsProps } from "../../navigation";
-import { varLoggedInUserEmail, varLoggedInUserName } from "../../sharedUI";
+import type { SettingsProps } from "../../Navigation/navigation";
+import { varLoggedInUserEmail, varLoggedInUserName } from "../../ui/sharedUI";
 import { settingsStyles } from "./SettingsScreen.styles";
 
 interface Button_ContactSupport_SettingsScreenProps {

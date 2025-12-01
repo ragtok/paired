@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Text, View } from "react-native";
-import type { SettingsProps } from "../../navigation";
+import type { SettingsProps } from "../../Navigation/navigation";
 import { Button_ContactSupport_SettingsScreen } from "./Button_ContactSupport_SettingsScreen";
 import { Button_PrivacyPolicy_SettingsScreen } from "./Button_PrivacyPolicy_SettingsScreen";
 import { Button_TermsOfService_SettingsScreen } from "./Button_TermsOfService_SettingsScreen";

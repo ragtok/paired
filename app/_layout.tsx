@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
-import { Stack } from "./navigation";
+import { Stack } from "./Navigation/navigation";
 import { MainScreen } from "./Screens/Main_Screen/MainScreen";
 import { ContactSupportScreen } from "./Screens/Navigation_Screens";
 import { ProfileScreen } from "./Screens/Profile_Screen/ProfileScreen";

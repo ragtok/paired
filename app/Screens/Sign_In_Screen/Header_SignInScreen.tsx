@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Image, Text } from "react-native";
-import { Separator, varAppName } from "../../sharedUI";
+import { Separator, varAppName } from "../../ui/sharedUI";
 import { signInStyles } from "./SignInScreen.styles";
 
 export function SignInScreenHeader() {

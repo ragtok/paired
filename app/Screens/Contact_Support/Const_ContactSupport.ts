@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Animated } from "react-native";
-import type { ContactSupportProps } from "../../navigation";
+import type { ContactSupportProps } from "../../Navigation/navigation";
 
 export const MAX_MESSAGE = 600;
 

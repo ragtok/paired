@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Pressable, Text, View } from "react-native";
-import GradientBorder from "../../GradientBorder";
+import GradientBorder from "../../ui/GradientBorder";
 import { mainScreenStyles } from "./MainScreen.styles";
 import type { TabType } from "./MainScreen.types";
 

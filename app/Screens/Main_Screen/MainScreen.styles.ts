@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { screenHeight } from "../../sharedUI";
+import { screenHeight } from "../../ui/sharedUI";
 
 export const mainScreenStyles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: "#121212" },

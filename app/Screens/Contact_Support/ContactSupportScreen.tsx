@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import type { ContactSupportProps } from "../../navigation";
+import type { ContactSupportProps } from "../../Navigation/navigation";
 import { Button_SendMsg_ContactSupport } from "./Button_SendMsg_ContactSupport";
 import { useContactSupportState } from "./Const_ContactSupport";
 import { contactStyles } from "./ContactSupportScreen.styles";

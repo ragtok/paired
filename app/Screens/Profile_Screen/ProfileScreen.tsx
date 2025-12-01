@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import type { ProfileProps } from "../../navigation";
+import type { ProfileProps } from "../../Navigation/navigation";
 import { Button_Save_ProfileScreen } from "./Button_Save_ProfileScreen";
 import { Card_1_ProfileScreen } from "./Card_1_ProfileScreen";
 import { Card_2_ProfileScreen } from "./Card_2_ProfileScreen";

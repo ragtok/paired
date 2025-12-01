@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import GradientBorder from "../../GradientBorder";
-import type { DetailsProps } from "../../navigation";
-import { Separator } from "../../sharedUI";
+import GradientBorder from "../../ui/GradientBorder";
+import type { DetailsProps } from "../../Navigation/navigation";
+import { Separator } from "../../ui/sharedUI";
 import { Animation_Card_MainScreen } from "./Animation_Card_MainScreen";
 import { Button_Reroll_MainScreen } from "./Button_Reroll_MainScreen";
 import { Buttons_Action_MainScreen } from "./Buttons_Action_MainScreen";

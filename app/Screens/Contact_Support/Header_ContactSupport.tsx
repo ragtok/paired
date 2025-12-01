@@ -1,7 +1,7 @@
 import { Feather } from "@expo/vector-icons";
 import * as React from "react";
 import { Pressable, Text, View } from "react-native";
-import type { ContactSupportProps } from "../../navigation";
+import type { ContactSupportProps } from "../../Navigation/navigation";
 import { contactStyles } from "./ContactSupportScreen.styles";
 
 interface Header_ContactSupportProps {

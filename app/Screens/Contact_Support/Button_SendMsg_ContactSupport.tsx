@@ -1,7 +1,7 @@
 import { Feather } from "@expo/vector-icons";
 import * as React from "react";
 import { Pressable, Text, View } from "react-native";
-import GradientBorder from "../../GradientBorder";
+import GradientBorder from "../../ui/GradientBorder";
 import { contactStyles } from "./ContactSupportScreen.styles";
 
 interface Button_SendMsg_ContactSupportProps {
