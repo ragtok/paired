@@ -405,122 +405,122 @@ function MainScreen({ route, navigation }: DetailsProps) {
   );
 }
 
-// ---------- Screen (Profile) ----------
-type FeatherIconName = keyof typeof Feather.glyphMap;
+// // ---------- Screen (Profile) ----------
+// type FeatherIconName = keyof typeof Feather.glyphMap;
 
-export function ProfileScreen({ navigation }: ProfileProps) {
-  const [q1, setQ1] = useState<string | null>(null);
-  const [q2, setQ2] = useState<string | null>(null);
-  const [q3, setQ3] = useState<string | null>(null);
-  const [q4, setQ4] = useState<string | null>(null);
-  const [q5, setQ5] = useState<string[]>([]);
-  const toggleQ5 = (val: string) =>
-    setQ5((arr) => (arr.includes(val) ? arr.filter((v) => v !== val) : [...arr, val]));
+// export function ProfileScreen({ navigation }: ProfileProps) {
+//   const [q1, setQ1] = useState<string | null>(null);
+//   const [q2, setQ2] = useState<string | null>(null);
+//   const [q3, setQ3] = useState<string | null>(null);
+//   const [q4, setQ4] = useState<string | null>(null);
+//   const [q5, setQ5] = useState<string[]>([]);
+//   const toggleQ5 = (val: string) =>
+//     setQ5((arr) => (arr.includes(val) ? arr.filter((v) => v !== val) : [...arr, val]));
 
-  const canSave = Boolean(q1 && q2 && q3 && q4);
+//   const canSave = Boolean(q1 && q2 && q3 && q4);
 
-  return (
-    <SafeAreaView style={styles.screen}>
-      {/* Header */}
-      <View style={ProfileScreenStyles.header}>
-        <Pressable
-          onPress={() => navigation.goBack()}
-          hitSlop={10}
-          style={({ pressed }) => [
-            ProfileScreenStyles.headerIconButton,
-            pressed && ProfileScreenStyles.headerIconButtonActive,
-          ]}
-        >
-          <Feather name="arrow-left" size={22} color="#00BFA6" />
-        </Pressable>
+//   return (
+//     <SafeAreaView style={styles.screen}>
+//       {/* Header */}
+//       <View style={ProfileScreenStyles.header}>
+//         <Pressable
+//           onPress={() => navigation.goBack()}
+//           hitSlop={10}
+//           style={({ pressed }) => [
+//             ProfileScreenStyles.headerIconButton,
+//             pressed && ProfileScreenStyles.headerIconButtonActive,
+//           ]}
+//         >
+//           <Feather name="arrow-left" size={22} color="#00BFA6" />
+//         </Pressable>
 
-        <View style={{ flex: 1, marginLeft: 8 }}>
-          <Text style={ProfileScreenStyles.headerTitle}>Profile</Text>
-          <Text style={ProfileScreenStyles.headerSubtitle}>Personalize Your Activities</Text>
-        </View>
+//         <View style={{ flex: 1, marginLeft: 8 }}>
+//           <Text style={ProfileScreenStyles.headerTitle}>Profile</Text>
+//           <Text style={ProfileScreenStyles.headerSubtitle}>Personalize Your Activities</Text>
+//         </View>
 
-        <View style={{ width: 40 }} />
-      </View>
+//         <View style={{ width: 40 }} />
+//       </View>
 
-      <ScrollView contentContainerStyle={ProfileScreenStyles.container} showsVerticalScrollIndicator={false}>
-        {/* Card 1 */}
-        <PrefCard number="1" title="What kind of activities do you usually prefer?">
-          <OptionGrid>
-            <OptionPill icon="zap" label="Active" selected={q1 === "Active"} onPress={() => setQ1("Active")} />
-            <OptionPill icon="tablet" label="Passive" selected={q1 === "Passive"} onPress={() => setQ1("Passive")} />
-            <OptionPill
-              icon="codesandbox"
-              label="Creative"
-              selected={q1 === "Creative"}
-              onPress={() => setQ1("Creative")}
-            />
-          </OptionGrid>
-        </PrefCard>
+//       <ScrollView contentContainerStyle={ProfileScreenStyles.container} showsVerticalScrollIndicator={false}>
+//         {/* Card 1 */}
+//         <PrefCard number="1" title="What kind of activities do you usually prefer?">
+//           <OptionGrid>
+//             <OptionPill icon="zap" label="Active" selected={q1 === "Active"} onPress={() => setQ1("Active")} />
+//             <OptionPill icon="tablet" label="Passive" selected={q1 === "Passive"} onPress={() => setQ1("Passive")} />
+//             <OptionPill
+//               icon="codesandbox"
+//               label="Creative"
+//               selected={q1 === "Creative"}
+//               onPress={() => setQ1("Creative")}
+//             />
+//           </OptionGrid>
+//         </PrefCard>
 
-        {/* Card 2 */}
-        <PrefCard number="2" title="Do you prefer indoor or outdoor activities?">
-          <OptionGrid>
-            <OptionPill icon="home" label="Indoor" selected={q2 === "Indoor"} onPress={() => setQ2("Indoor")} />
-            <OptionPill icon="sun" label="Outdoor" selected={q2 === "Outdoor"} onPress={() => setQ2("Outdoor")} />
-            <OptionPill icon="shuffle" label="Both" selected={q2 === "Both"} onPress={() => setQ2("Both")} />
-          </OptionGrid>
-        </PrefCard>
+//         {/* Card 2 */}
+//         <PrefCard number="2" title="Do you prefer indoor or outdoor activities?">
+//           <OptionGrid>
+//             <OptionPill icon="home" label="Indoor" selected={q2 === "Indoor"} onPress={() => setQ2("Indoor")} />
+//             <OptionPill icon="sun" label="Outdoor" selected={q2 === "Outdoor"} onPress={() => setQ2("Outdoor")} />
+//             <OptionPill icon="shuffle" label="Both" selected={q2 === "Both"} onPress={() => setQ2("Both")} />
+//           </OptionGrid>
+//         </PrefCard>
 
-        {/* Card 3 */}
-        <PrefCard number="3" title="How much time do you usually have?">
-          <OptionGrid>
-            <OptionPill
-              icon="clock"
-              label="Quick (under 1 hour)"
-              selected={q3 === "Quick"}
-              onPress={() => setQ3("Quick")}
-            />
-            <OptionPill icon="clock" label="Medium (1–3 hours)" selected={q3 === "Medium"} onPress={() => setQ3("Medium")} />
-            <OptionPill icon="clock" label="Long (half-day or more)" selected={q3 === "Long"} onPress={() => setQ3("Long")} />
-          </OptionGrid>
-        </PrefCard>
+//         {/* Card 3 */}
+//         <PrefCard number="3" title="How much time do you usually have?">
+//           <OptionGrid>
+//             <OptionPill
+//               icon="clock"
+//               label="Quick (under 1 hour)"
+//               selected={q3 === "Quick"}
+//               onPress={() => setQ3("Quick")}
+//             />
+//             <OptionPill icon="clock" label="Medium (1–3 hours)" selected={q3 === "Medium"} onPress={() => setQ3("Medium")} />
+//             <OptionPill icon="clock" label="Long (half-day or more)" selected={q3 === "Long"} onPress={() => setQ3("Long")} />
+//           </OptionGrid>
+//         </PrefCard>
 
-        {/* Card 4 */}
-        <PrefCard number="4" title="Do you enjoy solo or group activities more?">
-          <OptionGrid>
-            <OptionPill icon="user" label="Solo" selected={q4 === "Solo"} onPress={() => setQ4("Solo")} />
-            <OptionPill icon="users" label="With friends" selected={q4 === "With friends"} onPress={() => setQ4("With friends")} />
-            <OptionPill icon="compass" label="Either" selected={q4 === "Either"} onPress={() => setQ4("Either")} />
-          </OptionGrid>
-        </PrefCard>
+//         {/* Card 4 */}
+//         <PrefCard number="4" title="Do you enjoy solo or group activities more?">
+//           <OptionGrid>
+//             <OptionPill icon="user" label="Solo" selected={q4 === "Solo"} onPress={() => setQ4("Solo")} />
+//             <OptionPill icon="users" label="With friends" selected={q4 === "With friends"} onPress={() => setQ4("With friends")} />
+//             <OptionPill icon="compass" label="Either" selected={q4 === "Either"} onPress={() => setQ4("Either")} />
+//           </OptionGrid>
+//         </PrefCard>
 
-        {/* Card 5 */}
-        <PrefCard number="5" title="What’s your vibe?">
-          <Text style={ProfileScreenStyles.hint}>Select all that apply</Text>
-          <OptionGrid>
-            <OptionPill icon="coffee" label="Chill" selected={q5.includes("Chill")} onPress={() => toggleQ5("Chill")} multi />
-            <OptionPill icon="activity" label="Adventurous" selected={q5.includes("Adventurous")} onPress={() => toggleQ5("Adventurous")} multi />
-            <OptionPill icon="message-circle" label="Social" selected={q5.includes("Social")} onPress={() => toggleQ5("Social")} multi />
-            <OptionPill icon="zap" label="Creative" selected={q5.includes("Creative")} onPress={() => toggleQ5("Creative")} multi />
-          </OptionGrid>
-        </PrefCard>
+//         {/* Card 5 */}
+//         <PrefCard number="5" title="What’s your vibe?">
+//           <Text style={ProfileScreenStyles.hint}>Select all that apply</Text>
+//           <OptionGrid>
+//             <OptionPill icon="coffee" label="Chill" selected={q5.includes("Chill")} onPress={() => toggleQ5("Chill")} multi />
+//             <OptionPill icon="activity" label="Adventurous" selected={q5.includes("Adventurous")} onPress={() => toggleQ5("Adventurous")} multi />
+//             <OptionPill icon="message-circle" label="Social" selected={q5.includes("Social")} onPress={() => toggleQ5("Social")} multi />
+//             <OptionPill icon="zap" label="Creative" selected={q5.includes("Creative")} onPress={() => toggleQ5("Creative")} multi />
+//           </OptionGrid>
+//         </PrefCard>
 
-        {/* Save */}
-        <Pressable
-          disabled={!canSave}
-          onPress={() => {
-            console.log({ q1, q2, q3, q4, q5 });
-            navigation.goBack();
-          }}
-          style={({ pressed }) => [
-            ProfileScreenStyles.saveBtn,
-            (!canSave || pressed) && ProfileScreenStyles.saveBtnDisabled,
-          ]}
-        >
-          <Feather name="save" size={16} color={canSave ? "#00BFA6" : "#6B6B6B"} />
-          <Text style={[ProfileScreenStyles.saveBtnText, !canSave && { color: "#6B6B6B" }]}>
-            Save Preferences
-          </Text>
-        </Pressable>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+//         {/* Save */}
+//         <Pressable
+//           disabled={!canSave}
+//           onPress={() => {
+//             console.log({ q1, q2, q3, q4, q5 });
+//             navigation.goBack();
+//           }}
+//           style={({ pressed }) => [
+//             ProfileScreenStyles.saveBtn,
+//             (!canSave || pressed) && ProfileScreenStyles.saveBtnDisabled,
+//           ]}
+//         >
+//           <Feather name="save" size={16} color={canSave ? "#00BFA6" : "#6B6B6B"} />
+//           <Text style={[ProfileScreenStyles.saveBtnText, !canSave && { color: "#6B6B6B" }]}>
+//             Save Preferences
+//           </Text>
+//         </Pressable>
+//       </ScrollView>
+//     </SafeAreaView>
+//   );
+// }
 
 /* ---------- Tiny UI helpers ---------- */
 type PrefCardProps = { number: string; title: string; children?: React.ReactNode };
@@ -745,124 +745,124 @@ export function ContactSupportScreen({ navigation, route }: ContactSupportProps)
   );
 }
 
-// ---------- Screen (Settings) ----------
-export function SettingsScreen({ navigation }: SettingsProps) {
-  const [notifications, setNotifications] = useState<boolean>(true);
-  const [darkMode, setDarkMode] = useState<boolean>(true);
+// // ---------- Screen (Settings) ----------
+// export function SettingsScreen({ navigation }: SettingsProps) {
+//   const [notifications, setNotifications] = useState<boolean>(true);
+//   const [darkMode, setDarkMode] = useState<boolean>(true);
 
-  return (
-    <SafeAreaView style={styles.screen}>
-      {/* Header */}
-      <View style={settingsStyles.header}>
-        <Pressable
-          onPress={() => navigation.goBack()}
-          hitSlop={10}
-          style={({ pressed }) => [
-            settingsStyles.headerIconButton,
-            pressed && settingsStyles.headerIconButtonActive,
-          ]}
-        >
-          <Feather name="arrow-left" size={22} color="#00BFA6" />
-        </Pressable>
-        <Text style={settingsStyles.headerTitle}>Settings</Text>
-        <View style={{ width: 40 }} />
-      </View>
+//   return (
+//     <SafeAreaView style={styles.screen}>
+//       {/* Header */}
+//       <View style={settingsStyles.header}>
+//         <Pressable
+//           onPress={() => navigation.goBack()}
+//           hitSlop={10}
+//           style={({ pressed }) => [
+//             settingsStyles.headerIconButton,
+//             pressed && settingsStyles.headerIconButtonActive,
+//           ]}
+//         >
+//           <Feather name="arrow-left" size={22} color="#00BFA6" />
+//         </Pressable>
+//         <Text style={settingsStyles.headerTitle}>Settings</Text>
+//         <View style={{ width: 40 }} />
+//       </View>
 
-      {/* Content */}
-      <View style={settingsStyles.container}>
-        {/* Preferences */}
-        <View style={settingsStyles.group}>
-          {/* Profile */}
-          <Pressable
-            style={settingsStyles.cardRow}
-            android_ripple={{ color: "#1a1a1a" }}
-            onPress={() => navigation.navigate("Profile")}
-          >
-            <View style={settingsStyles.rowLeft}>
-              <View style={settingsStyles.rowIconWrap}>
-                <Feather name="user-check" size={18} color="#00BFA6" />
-              </View>
-              <View>
-                <Text style={settingsStyles.rowTitle}>Profile</Text>
-                <Text style={settingsStyles.rowSubtitle}>Personalize your experience</Text>
-              </View>
-            </View>
-            <Feather name="chevron-right" size={18} color="#6B6B6B" />
-          </Pressable>
+//       {/* Content */}
+//       <View style={settingsStyles.container}>
+//         {/* Preferences */}
+//         <View style={settingsStyles.group}>
+//           {/* Profile */}
+//           <Pressable
+//             style={settingsStyles.cardRow}
+//             android_ripple={{ color: "#1a1a1a" }}
+//             onPress={() => navigation.navigate("Profile")}
+//           >
+//             <View style={settingsStyles.rowLeft}>
+//               <View style={settingsStyles.rowIconWrap}>
+//                 <Feather name="user-check" size={18} color="#00BFA6" />
+//               </View>
+//               <View>
+//                 <Text style={settingsStyles.rowTitle}>Profile</Text>
+//                 <Text style={settingsStyles.rowSubtitle}>Personalize your experience</Text>
+//               </View>
+//             </View>
+//             <Feather name="chevron-right" size={18} color="#6B6B6B" />
+//           </Pressable>
 
-          {/* Notifications */}
-          <Pressable
-            style={settingsStyles.cardRow}
-            android_ripple={{ color: "#1a1a1a" }}
-            onPress={() => setNotifications(!notifications)}
-          >
-            <View style={settingsStyles.rowLeft}>
-              <View style={settingsStyles.rowIconWrap}>
-                <Feather name="bell" size={18} color="#00BFA6" />
-              </View>
-              <View>
-                <Text style={settingsStyles.rowTitle}>Notifications</Text>
-                <Text style={settingsStyles.rowSubtitle}>
-                  Get daily question or activity suggestions
-                </Text>
-              </View>
-            </View>
-            <Feather
-              name={notifications ? "toggle-right" : "toggle-left"}
-              size={36}
-              color={notifications ? "#00BFA6" : "#6B6B6B"}
-            />
-          </Pressable>
-        </View>
+//           {/* Notifications */}
+//           <Pressable
+//             style={settingsStyles.cardRow}
+//             android_ripple={{ color: "#1a1a1a" }}
+//             onPress={() => setNotifications(!notifications)}
+//           >
+//             <View style={settingsStyles.rowLeft}>
+//               <View style={settingsStyles.rowIconWrap}>
+//                 <Feather name="bell" size={18} color="#00BFA6" />
+//               </View>
+//               <View>
+//                 <Text style={settingsStyles.rowTitle}>Notifications</Text>
+//                 <Text style={settingsStyles.rowSubtitle}>
+//                   Get daily question or activity suggestions
+//                 </Text>
+//               </View>
+//             </View>
+//             <Feather
+//               name={notifications ? "toggle-right" : "toggle-left"}
+//               size={36}
+//               color={notifications ? "#00BFA6" : "#6B6B6B"}
+//             />
+//           </Pressable>
+//         </View>
 
-        {/* Support */}
-        <View style={settingsStyles.group}>
-          <Text style={settingsStyles.groupTitle}>Support</Text>
-          <Pressable
-            style={settingsStyles.listRow}
-            onPress={() => Linking.openURL("https://yourwebsite.com/privacy")}
-          >
-            <Text style={settingsStyles.listRowText}>Privacy Policy</Text>
-            <Feather name="external-link" size={16} color="#6B6B6B" />
-          </Pressable>
-          <Pressable
-            style={settingsStyles.listRow}
-            onPress={() => Linking.openURL("https://yourwebsite.com/terms")}
-          >
-            <Text style={settingsStyles.listRowText}>Terms of Service</Text>
-            <Feather name="external-link" size={16} color="#6B6B6B" />
-          </Pressable>
-          {/* SettingsScreen → inside the Support group */}
-          <Pressable
-            style={settingsStyles.listRow}
-            onPress={() =>
-              navigation.navigate("ContactSupport", {
-                user: { name: varLoggedInUserName, email: varLoggedInUserEmail },
-              })
-            }
-          >
-            <Text style={settingsStyles.listRowText}>Contact Support</Text>
-            <Feather name="mail" size={16} color="#6B6B6B" />
-          </Pressable>
-        </View>
+//         {/* Support */}
+//         <View style={settingsStyles.group}>
+//           <Text style={settingsStyles.groupTitle}>Support</Text>
+//           <Pressable
+//             style={settingsStyles.listRow}
+//             onPress={() => Linking.openURL("https://yourwebsite.com/privacy")}
+//           >
+//             <Text style={settingsStyles.listRowText}>Privacy Policy</Text>
+//             <Feather name="external-link" size={16} color="#6B6B6B" />
+//           </Pressable>
+//           <Pressable
+//             style={settingsStyles.listRow}
+//             onPress={() => Linking.openURL("https://yourwebsite.com/terms")}
+//           >
+//             <Text style={settingsStyles.listRowText}>Terms of Service</Text>
+//             <Feather name="external-link" size={16} color="#6B6B6B" />
+//           </Pressable>
+//           {/* SettingsScreen → inside the Support group */}
+//           <Pressable
+//             style={settingsStyles.listRow}
+//             onPress={() =>
+//               navigation.navigate("ContactSupport", {
+//                 user: { name: varLoggedInUserName, email: varLoggedInUserEmail },
+//               })
+//             }
+//           >
+//             <Text style={settingsStyles.listRowText}>Contact Support</Text>
+//             <Feather name="mail" size={16} color="#6B6B6B" />
+//           </Pressable>
+//         </View>
 
-        {/* About */}
-        <View style={settingsStyles.group}>
-          <Text style={settingsStyles.groupTitle}>About</Text>
-          <View style={settingsStyles.cardBox}>
-            <Text style={settingsStyles.appName}>
-              {varAppName} {varAppVersion}
-            </Text>
-            <Text style={settingsStyles.appDesc}>
-              Discover engaging questions and activities to spark conversations and
-              exploration - with more features coming soon.
-            </Text>
-          </View>
-        </View>
-      </View>
-    </SafeAreaView>
-  );
-}
+//         {/* About */}
+//         <View style={settingsStyles.group}>
+//           <Text style={settingsStyles.groupTitle}>About</Text>
+//           <View style={settingsStyles.cardBox}>
+//             <Text style={settingsStyles.appName}>
+//               {varAppName} {varAppVersion}
+//             </Text>
+//             <Text style={settingsStyles.appDesc}>
+//               Discover engaging questions and activities to spark conversations and
+//               exploration - with more features coming soon.
+//             </Text>
+//           </View>
+//         </View>
+//       </View>
+//     </SafeAreaView>
+//   );
+// }
 
 // ---------- App entry ----------
 export default function App() {
